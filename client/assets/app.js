@@ -3,26 +3,40 @@ var app = angular.module('app', ["ui.router", "ngStorage"]);
 app.config(function($stateProvider, $urlRouterProvider){
   $stateProvider
   .state('home', { 
-    url: '/', templateUrl: 'partials/home.html', 
-    controller: 'homeCtrl' })
+    url: '/', templateUrl: 'partials/home.html'
+    // , 
+    // controller: 'homeCtrl' 
+  })
   .state('register', { 
-    url: '/register', templateUrl: 'partials/register.html', 
-    controller: 'registerCtrl' })
+    url: '/register', templateUrl: 'partials/register.html'
+    // , 
+    // controller: 'registerCtrl' 
+  })
   .state('addlink', { 
-    url: '/addlink', templateUrl: 'partials/addlink.html', 
-    controller: 'navCtrl' })
+    url: '/addlink', templateUrl: 'partials/addlink.html'
+    // , 
+    // controller: 'navCtrl' 
+  })
   .state('collection', { 
-    url: '/collections/:collectionid', templateUrl: 'partials/collection.html', 
-    controller: 'collectionCtrl' })
+    url: '/collections/:collectionid', templateUrl: 'partials/collection.html'
+    // , 
+    // controller: 'collectionCtrl' 
+  })
   .state('profile', { 
-    url: '/users/:username', templateUrl: 'partials/profile.html', 
-    controller: 'profileCtrl' })
+    url: '/users/:username', templateUrl: 'partials/profile.html'
+    // , 
+    // controller: 'profileCtrl' 
+  })
   .state('usercollections', { 
-    url: '/usercollections/:username', templateUrl: 'partials/usercollections.html', 
-    controller: 'profileCtrl' })
+    url: '/usercollections/:username', templateUrl: 'partials/usercollections.html'
+    // , 
+    // controller: 'profileCtrl' 
+  })
   .state('userlinks', { 
-    url: '/userlinks/:username', templateUrl: 'partials/userlinks.html', 
-    controller: 'profileCtrl' })
+    url: '/userlinks/:username', templateUrl: 'partials/userlinks.html'
+    // , 
+    // controller: 'profileCtrl' 
+  })
 
 
   $urlRouterProvider.otherwise('/');

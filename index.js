@@ -16,5 +16,5 @@ require('./server/config/mongoose.js');
 require('./server/config/routes.js')(app);
 
 app.listen(port, function(){
-  console.log(`linkarchives server running on port ${ port }`);
+  console.log(`meantemplateypc server running on port ${ port }`);
 })
