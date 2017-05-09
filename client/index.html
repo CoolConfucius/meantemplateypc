@@ -49,6 +49,8 @@
             </div>
             <div class="col-xs-10 text-right menu-1">
               <ul id="nav_links">
+                <li ng-if="loguser">Welcome, {{loguser.username}}!</li>
+                <li ng-if="!loguser && rootuser">Welcome, {{rootuser.username}}!</a>
                 <li><a href="#!/">Home</a></li>
                 <li><a href="#!/events">Events</a></li>
                 <li><a href="#!/blog">Blog</a></li>
@@ -111,7 +113,7 @@
       <div class="row copyright">
         <div class="col-md-12 text-center">
           <p>
-            <small class="block">Designed &amp; Developed by <a href="https://github.com/ZakStrassberg/YPC-scrum/graphs/contributors" target="_blank">YPC Scrum Team</a></small>
+            <small class="block">Designed &amp; Developed by <a href="https://github.com/CoolConfucius/meantemplateypc" target="_blank">YPC Scrum Team</a></small>
           </p>
         </div>
       </div>
