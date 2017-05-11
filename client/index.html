@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Awesome</title>
+  <title>Young Professionals Council</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The YPC is composed of emerging leaders in the business community who are dedicated to promoting the level of health care in the County of Santa Clara and addressing the current health-related issues affecting the community. The focus of the Young Professional Council is to raise funds, volunteer, promote community awareness, and build partnerships with the local business community." />
+  <meta name="keywords" content="YPC, Young Professional Council, VMC Foundation, Santa Clara County, Santa Clara Valley Medical Center, Women and Children’s Center, Raise funds, volunteer, promote community awareness, build partnerships, young leaders, positive impact, network, goal, expand."/>
+  
   <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="sweetalert/dist/sweetalert.css">
@@ -51,12 +55,15 @@
               <ul id="nav_links">
                 <li ng-if="loguser">Welcome, {{loguser.username}}!</li>
                 <li ng-if="!loguser && rootuser">Welcome, {{rootuser.username}}!</a>
+                <li ng-if="loguser || rootuser" ng-click="logout()" type="" class="btn btn-default">Logout!</li>
                 <li><a href="#!/">Home</a></li>
                 <li><a href="#!/events">Events</a></li>
                 <li><a href="#!/blog">Blog</a></li>
                 <li><a href="#!/execs">Executives</a></li>
                 <li><a href="#!/donate">Donate</a></li>
                 <li><a href="#!/contact">Contact</a></li>
+                <li ng-if="!loguser && !rootuser"><a href="#!/join">Join</a></li>
+                <li ng-if="!loguser && !rootuser"><a href="#!/sign_in">Sign In</a></li>
               </ul>
             </div>
           </div>
