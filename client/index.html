@@ -58,9 +58,9 @@
             </div>
             <div class="col-xs-10 text-right menu-1">
               <ul id="nav_links">
-                <li ng-if="loguser">Welcome, {{loguser.username}}!</li>
+                <li ng-if="loguser"><a>Welcome, {{loguser.username}}!</a></li>
                 <li ng-if="!loguser && rootuser">Welcome, {{rootuser.username}}!</a>
-                <li ng-if="loguser || rootuser" ng-click="logout()" type="" class="btn btn-default">Logout!</li>
+                <li ng-if="loguser || rootuser" ng-click="logout()" type="" class="btn btn-primary">Logout!</li>
                 <li ng-click="active('/')" ng-class="{active: $url=='/'}"><a href="#!/">Home</a></li>
                 <li ng-click="active('/events')" ng-class="{active: $url=='/events'}"><a href="#!/events">Events</a></li>
                 <li ng-click="active('/blog')" ng-class="{active: $url=='/blog'}"><a href="#!/blog">Blog</a></li>
