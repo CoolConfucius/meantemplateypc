@@ -42,13 +42,13 @@ app.controller('registerCtrl', ['$scope', '$state', '$localStorage', 'usersFacto
   $scope.username = '';
 
   $scope.register = function(){
-    if ($scope.regpassword !== $scope.regconfirmpassword) {
+    if ($scope.pw1 !== $scope.pw2) {
       swal("Passwords not the same!");
       return;
     };
     var user = {
-      username: $scope.regusername,
-      password: $scope.regpassword
+      username: $scope.username,
+      password: $scope.pw1
     }
     usersFactory.register(user, function(data){
       console.log("user controller factory register", data);

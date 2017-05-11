@@ -18,7 +18,8 @@ app.config(function($stateProvider, $urlRouterProvider){
     url: '/events', templateUrl: 'partials/events.html'    
   })
   .state('join', { 
-    url: '/join', templateUrl: 'partials/join.html'    
+    url: '/join', templateUrl: 'partials/join.html',
+    controller: 'registerCtrl'
   })
   .state('post', { 
     url: '/post', templateUrl: 'partials/post.html'    

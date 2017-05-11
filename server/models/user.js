@@ -8,7 +8,7 @@ var Schema = mongoose.Schema;
 var UserSchema = new mongoose.Schema({
   username: {type: String},
   password: {type: String},
-
+  admin: {type: Boolean, default: false},
   email: { type: String }, 
 }, {timestamps: true})
 

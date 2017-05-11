@@ -1,4 +1,4 @@
-<div>
+ <div>
   <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(images/banner/Join5.jpg);" data-stellar-background-ratio="1">
     <div class="overlay"></div>
     <div class="container">
@@ -57,53 +57,59 @@
         <span>Come join us</span>
         <h2>SIGN UP</h2>
         <br>
-        <form action="/newuser" method="POST">
+        <form id="formRegister">
+          <div class="row form-group">
+            <div class="col-md-6">
+              <label for="username">User Name <span class="valid_error"><%= errors.username %></span></label>
+              <input ng-model="username" type="text" id="username" class="form-control" placeholder="User Name">
+            </div>
+          </div>
           <div class="row form-group">
             <div class="col-md-6">
               <label for="fname">First Name <span class="valid_error"><%= errors.first_name %></span></label>
-              <input name="first_name" type="text" id="fname" class="form-control" placeholder="First Name">
+              <input ng-model="first_name" type="text" id="fname" class="form-control" placeholder="First Name">
             </div>
             <div class="col-md-6">
               <label for="lname">Last Name <span class="valid_error"><%= errors.last_name %></span></label>
-              <input name="last_name" type="text" id="lname" class="form-control" placeholder="Last Name">
+              <input ng-model="last_name" type="text" id="lname" class="form-control" placeholder="Last Name">
             </div>
           </div>
 
           <div class="row form-group">
             <div class="col-md-12">
               <label for="phone">Phone Number<span class="valid_error"><%= errors.phone %></span></label>
-              <input name="phone" type="tel" id="phone" class="form-control" placeholder="Phone Number">
+              <input ng-model="phone" type="tel" id="phone" class="form-control" placeholder="Phone Number">
             </div>
           </div>
 
           <div class="row form-group">
             <div class="col-md-12">
               <label for="email">Email<span class="valid_error"><%= errors.email %></span></label>
-              <input name="email" type="text" id="email" class="form-control" placeholder="Email Address">
+              <input ng-model="email" type="text" id="email" class="form-control" placeholder="Email Address">
             </div>
           </div>
 
           <div class="row form-group">
             <div class="col-md-6">
               <label for="company">Company (optional) <span class="valid_error"><%= errors.company %></span></label>
-              <input name="company" type="text" id="company" class="form-control" placeholder="Company">
+              <input ng-model="company" type="text" id="company" class="form-control" placeholder="Company">
             </div>
             <div class="col-md-6">
               <label for="position">Position (optional)<span class="valid_error"><%= errors.position %></span></label>
-              <input name="position" type="text" id="position" class="form-control" placeholder="Position">
+              <input ng-model="position" type="text" id="position" class="form-control" placeholder="Position">
             </div>
           </div>
 
           <div class="row form-group">
             <div class="col-md-12">
               <label for="subject">Password<span class="valid_error"><%= errors.password %></span></label>
-              <input name="pw1" type="password" id="password" class="form-control" placeholder="Password">
+              <input ng-model="pw1" type="password" id="password" class="form-control" placeholder="Password" required="required">
             </div>
           </div>
           <div class="row form-group">
             <div class="col-md-12">
               <label for="subject">Confirm Password<span class="valid_error"><%= errors.confirm_password %></span></label>
-              <input name="pw2" type="password" id="confirm_password" class="form-control" placeholder="Confirm Password">
+              <input ng-model="pw2" type="password" id="confirm_password" class="form-control" placeholder="Confirm Password" required="required">
             </div>
           </div>
           <div class="row form-group">
@@ -149,7 +155,7 @@
             </div>
           </div>
           <div class="form-group">
-            <input type="submit" value="Sign Up" class="btn btn-lg btn-primary">
+            <input ng-click="register()" type="submit" value="Sign Up" class="btn btn-lg btn-primary">
           </div>
         </form>
       </div>
