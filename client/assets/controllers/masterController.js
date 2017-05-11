@@ -2,8 +2,10 @@ console.log("masterCtrl");
 
 var app = angular.module('app');
 
-app.controller('navCtrl', ['$scope', '$state', 'usersFactory', function($scope, $state, usersFactory){
+app.controller('navCtrl', ['$scope', '$state', '$location', 'usersFactory', function($scope, $state, $location, usersFactory){
   console.log("navCtrl");
+  console.log("$location: ", $location.url());
+  $scope.$url = $location.url(); 
   $scope.loguser = null; 
   usersFactory.getUser(function(data){
     $scope.loguser = data; 
@@ -32,6 +34,11 @@ app.controller('navCtrl', ['$scope', '$state', 'usersFactory', function($scope, 
       $scope.loguser = null;   
       $state.go('home')
     })
+  }
+
+  $scope.active = function(string){
+    console.log(string);
+    $scope.$url = string;
   }
 
 }])

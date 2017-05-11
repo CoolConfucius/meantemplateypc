@@ -10,13 +10,12 @@
   <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="sweetalert/dist/sweetalert.css">
-  <link rel="stylesheet" type="text/css" href="assets/style.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
   <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="assets/css/flexslider.css">
   <link rel="stylesheet" type="text/css" href="assets/css/icomoon.css">
   <link rel="stylesheet" type="text/css" href="assets/css/magnific-popup.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
   <script src="angular/angular.js" charset="utf-8"></script>
   <script src="jquery/dist/jquery.min.js" charset="utf-8"></script>
@@ -62,12 +61,12 @@
                 <li ng-if="loguser">Welcome, {{loguser.username}}!</li>
                 <li ng-if="!loguser && rootuser">Welcome, {{rootuser.username}}!</a>
                 <li ng-if="loguser || rootuser" ng-click="logout()" type="" class="btn btn-default">Logout!</li>
-                <li><a href="#!/">Home</a></li>
-                <li><a href="#!/events">Events</a></li>
-                <li><a href="#!/blog">Blog</a></li>
-                <li><a href="#!/execs">Executives</a></li>
-                <li><a href="#!/donate">Donate</a></li>
-                <li><a href="#!/contact">Contact</a></li>
+                <li ng-click="active('/')" ng-class="{active: $url=='/'}"><a href="#!/">Home</a></li>
+                <li ng-click="active('/events')" ng-class="{active: $url=='/events'}"><a href="#!/events">Events</a></li>
+                <li ng-click="active('/blog')" ng-class="{active: $url=='/blog'}"><a href="#!/blog">Blog</a></li>
+                <li ng-click="active('/execs')" ng-class="{active: $url=='/execs'}"><a href="#!/execs">Executives</a></li>
+                <li ng-click="active('/donate')" ng-class="{active: $url=='/donate'}"><a href="#!/donate">Donate</a></li>
+                <li ng-click="active('/contact')" ng-class="{active: $url=='/contact'}"><a href="#!/contact">Contact</a></li>
                 <li ng-if="!loguser && !rootuser"><a href="#!/join">Join</a></li>
                 <li class="btn btn-primary" ng-if="!loguser && !rootuser"><a href="#!/sign_in">Sign In</a></li>
               </ul>
