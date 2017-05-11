@@ -25,7 +25,8 @@ app.config(function($stateProvider, $urlRouterProvider){
     url: '/post', templateUrl: 'partials/post.html'    
   })
   .state('sign_in', { 
-    url: '/sign_in', templateUrl: 'partials/sign_in.html'
+    url: '/sign_in', templateUrl: 'partials/sign_in.html',
+    controller: 'navCtrl'
   })
 
 
