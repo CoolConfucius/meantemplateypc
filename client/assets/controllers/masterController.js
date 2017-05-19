@@ -47,6 +47,7 @@ app.controller('navCtrl', ['$scope', '$state', '$location', 'usersFactory', func
 app.controller('registerCtrl', ['$scope', '$state', '$localStorage', 'usersFactory', function($scope, $state, $localStorage, usersFactory){
   console.log("registerCtrl");
   $scope.username = '';
+  $scope.isadmin = false; 
 
   $scope.register = function(){
     if ($scope.pw1 !== $scope.pw2) {
