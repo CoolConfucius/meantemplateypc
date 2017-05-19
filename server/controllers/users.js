@@ -19,6 +19,7 @@ function UsersController(){
     console.log("users create: ", req.body);
     var user = req.body; 
     var username = user.username;
+    var admin = user.admin;
     var password = user.password;
     // console.log("Here: ", username, password);
     User.findOne({username: username}, function(err, user){
@@ -34,6 +35,7 @@ function UsersController(){
             
             var newUser = new User();
             newUser.username = username;
+            newUser.admin = admin;
             newUser.password = hash;
             newUser.save(function(err, savedUser){
               if (err) res.send(err);
