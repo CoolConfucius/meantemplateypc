@@ -15,6 +15,7 @@ var UserSchema = new mongoose.Schema({
 UserSchema.methods.token = function() {
   var payload = {
     username: this.username,
+    admin: this.admin,
     _id: this._id
   };
   var secret = process.env.JWT_SECRET;
