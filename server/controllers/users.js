@@ -16,7 +16,7 @@ function UsersController(){
 
 
   this.create = function(req, res){
-    console.log("users create: ", req.body);
+    console.log("users create req.body: ", req.body);
     var user = req.body; 
     var username = user.username;
     var admin = user.admin;

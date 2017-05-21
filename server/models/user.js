@@ -13,6 +13,7 @@ var UserSchema = new mongoose.Schema({
 }, {timestamps: true})
 
 UserSchema.methods.token = function() {
+  console.log("this: ", this);
   var payload = {
     username: this.username,
     admin: this.admin,

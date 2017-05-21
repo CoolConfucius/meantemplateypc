@@ -64,7 +64,8 @@ app.controller('registerCtrl', ['$scope', '$state', '$localStorage', 'usersFacto
     };
     var user = {
       username: $scope.username,
-      password: $scope.pw1
+      password: $scope.pw1,
+      admin: $scope.isadmin
     }
     usersFactory.register(user, function(data){
       console.log("user controller factory register", data);
