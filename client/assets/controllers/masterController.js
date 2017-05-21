@@ -50,6 +50,14 @@ app.controller('registerCtrl', ['$scope', '$state', '$localStorage', 'usersFacto
   $scope.isadmin = false; 
 
   $scope.register = function(){
+    if ($scope.loguser) {
+      swal("Logout first before registering!");
+      return; 
+    };
+    if (!$scope.username && !$scope.email) {
+      swal("A username or email is required!");
+      return; 
+    };
     if ($scope.pw1 !== $scope.pw2) {
       swal("Passwords not the same!");
       return;
