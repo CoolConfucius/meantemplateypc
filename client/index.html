@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="The YPC is composed of emerging leaders in the business community who are dedicated to promoting the level of health care in the County of Santa Clara and addressing the current health-related issues affecting the community. The focus of the Young Professional Council is to raise funds, volunteer, promote community awareness, and build partnerships with the local business community." />
   <meta name="keywords" content="YPC, Young Professional Council, VMC Foundation, Santa Clara County, Santa Clara Valley Medical Center, Women and Children’s Center, Raise funds, volunteer, promote community awareness, build partnerships, young leaders, positive impact, network, goal, expand."/>
-  
+
   <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="sweetalert/dist/sweetalert.css">
@@ -27,11 +27,24 @@
   <script src="assets/app.js" charset="utf-8"></script>
 
   <script src="assets/factories/masterFactory.js" charset="utf-8"></script>
-  
-  <script src="assets/controllers/masterController.js" charset="utf-8"></script>
 
-  
-  
+  <script src="assets/controllers/masterController.js" charset="utf-8"></script>
+  <script>
+		function makeEditable(div){
+	   div.style.border = "1px solid #000";
+	   div.style.padding = "20px";
+	   div.contentEditable = true;
+	 }
+		function makeReadOnly(div){
+   		div.style.border = "none";
+	   div.style.padding = "0px";
+	   div.contentEditable = false;
+	   alert("Run Ajax POST request here to save the div.innerHTML \
+	   or div.textContent to the database.");
+	 }
+	 </script>
+
+
 </head>
 <body ng-app="app" ng-controller="navCtrl">
   <div class="fh5co-loader"></div>
