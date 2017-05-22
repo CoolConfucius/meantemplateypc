@@ -3,7 +3,8 @@ var app = angular.module('app', ["ui.router", "ngStorage"]);
 app.config(function($stateProvider, $urlRouterProvider){
   $stateProvider
   .state('home', { 
-    url: '/', templateUrl: 'partials/home.html'    
+    url: '/', templateUrl: 'partials/home.html',
+    controller: 'homeCtrl'    
   })
   .state('blog', { 
     url: '/blog', templateUrl: 'partials/blog.html'    
@@ -36,8 +37,11 @@ app.config(function($stateProvider, $urlRouterProvider){
   $urlRouterProvider.otherwise('/');
 });
 
-app.run(function($rootScope, usersFactory){
+app.run(function($rootScope, usersFactory, hometextsFactory){
   console.log("App.run! ");
+  hometextsFactory.getHometext(function(data){
+    $rootScope.roothometext = data; 
+  }); 
   usersFactory.getUser(function(data){
     $rootScope.rootuser = data; 
   }); 

@@ -97,3 +97,52 @@ app.factory('usersFactory', ['$http', '$localStorage', '$rootScope', function($h
 
   return new UsersFactory();
 }])
+
+
+app.factory('hometextsFactory', ['$http', '$localStorage', '$rootScope', function($http, $localStorage, $rootScope){
+  var hometexts = []; 
+  var hometext = {}; 
+  function HometextsFactory(){
+
+    this.create = function(newlink, callback){
+      $http.post('/hometexts', newlink).then(function(returned_data){
+        console.log("returned_data: ", returned_data.data);
+        if (typeof(callback) == 'function'){
+          callback(returned_data.data);
+        }
+      });
+    };
+
+    this.toggle = function(id, callback){ 
+      $http.put(`/hometexts/${id}`).then(function(data){
+        console.log(data);
+        if (typeof(callback) == 'function'){
+          callback(data.data);
+        }
+      })
+    };
+
+
+    this.index = function(callback){
+      console.log("hometexts factory index method");
+      $http.get('/hometexts').then(function(returned_data){
+        console.log("hometexts factory get hometexts: ", returned_data.data);
+        hometexts = returned_data.data;
+        // hometexts = {
+        //   missionp: "text works?"
+        // }
+        callback(hometexts);
+      });
+
+    };
+
+    this.getHometexts = function(callback){
+      callback(hometexts);
+    };
+    this.getHometext = function(callback){
+      callback(hometext);
+    };
+  }
+  
+  return new HometextsFactory();
+}])

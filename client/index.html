@@ -35,13 +35,21 @@
 	   div.style.padding = "20px";
 	   div.contentEditable = true;
 	 }
-		function makeReadOnly(div){
+		function makeReadOnly(div, cb){
    		div.style.border = "none";
 	   div.style.padding = "0px";
 	   div.contentEditable = false;
-	   alert("Run Ajax POST request here to save the div.innerHTML \
-	   or div.textContent to the database.");
+     // alert("Run Ajax POST request here to save the div.innerHTML \ or div.textContent to the database.");
+	   console.log("Run Ajax POST request here to save the div.innerHTML \ or div.textContent to the database.");
+     cb(); 
 	 }
+
+   function savehome(){
+    console.log("Save Home");
+    $.post("/testing", function(data){
+      console.log("data: ", data);
+    })
+   }
 	 </script>
 
 

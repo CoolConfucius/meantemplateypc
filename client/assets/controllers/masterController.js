@@ -1,6 +1,12 @@
 console.log("masterCtrl");
 
 var app = angular.module('app');
+var defaulthome = {
+  h2_1: "Raise Funds, Volunteer, Promote Community Awareness &amp; Build Partnerships with the local business community",
+  ourpurpose: "Our Purpose",
+  mission: "MISSION",
+  missionp: "Recognizing the desire of young professionals in Santa Clara County to contribute to the welfare of their communities and connect with like-minded peers, the VMC Foundation is introducing The Young Professional Council (YPC). YPC supports the efforts of the VMC Foundation to provide critical funds for the creation of the Women and Children’s Center at VMC. The focus of the Young Professional Council is to raise funds, volunteer, promote community awareness, and build partnerships with the local business community."
+}
 
 app.controller('navCtrl', ['$scope', '$state', '$location', 'usersFactory', function($scope, $state, $location, usersFactory){
   console.log("navCtrl");
@@ -83,29 +89,58 @@ app.controller('registerCtrl', ['$scope', '$state', '$localStorage', 'usersFacto
 
 }])
 
-app.controller('homeCtrl', ['$scope', '$location', 'usersFactory', function($scope, $location, usersFactory){
+app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactory', 'hometextsFactory', function($scope, $location, $localStorage, usersFactory, hometextsFactory){
   console.log("homeCtrl");
-  
   $scope.loguser = null; 
-  usersFactory.getUser(function(data){
-    console.log("navCtrl usersFactory getUser, ", data);
+  $scope.missionp = defaulthome.missionp;
+  
+  hometextsFactory.index(function(data){
+    console.log("homeCtrl hometextsFactory index, ", data);
     if (data) {
-      $scope.loguser = data; 
-      $scope.newcollection.owner = data.username;
-      $scope.username = data.username;
-      usersFactory.show($scope.username, function(data){
-        console.log("homeCtrl usersFactory show: ");
-        console.log("data , ", data);
-        $scope.loguser._collections = data._collections; 
-      })
+      if (data.missionp) {
+        $scope.missionp = data.missionp;
+      };
     };
+    usersFactory.getUser(function(data){
+      console.log("homeCtrl usersFactory getUser, ", data);
+      if (data) {
+        $scope.loguser = data; 
+        // $scope.newcollection.owner = data.username;
+        $scope.username = data.username;
+        usersFactory.show($scope.username, function(data){
+          console.log("homeCtrl usersFactory show: ");
+          console.log("data , ", data);
+          // $scope.loguser._collections = data._collections; 
+        })
+      };
+    })
   })
 
+  $scope.savehome = function(){
+    console.log("savehome");
+  }
+
+  $scope.makeEditable = function(div){
+    console.log("div: ", div);
+     div.style.border = "1px solid #000";
+     div.style.padding = "20px";
+     div.contentEditable = true;
+   }
+
+    $scope.makeReadOnly = function(div, cb){
+      div.style.border = "none";
+     div.style.padding = "0px";
+     div.contentEditable = false;
+     // alert("Run Ajax POST request here to save the div.innerHTML \ or div.textContent to the database.");
+     console.log("Run Ajax POST request here to save the div.innerHTML \ or div.textContent to the database.");
+     cb(); 
+   }
+
+
   
 
-  $scope.users = [];
-
-  console.log($scope.users);
+  // $scope.users = [];
+  // console.log($scope.users);
 
 }])
 
