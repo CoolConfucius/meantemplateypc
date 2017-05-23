@@ -138,7 +138,6 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
   $scope.saveeditable = function(name){
     console.log("saveeditable ", name);
     if ($scope.editables.length > 0) {
-      // console.log("$scope.editables: ", $scope.editables);
       $scope.editables.forEach(function(editable, index){
         if (editable.name === name) {
           if ($scope[name] === editable.content) {
@@ -175,145 +174,20 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
     
   }
 
-  // $scope.togglemissionp = function(){
-  //   console.log("togglemissionp");
-  //   $scope.homeedit.missionp = true; 
+  // $scope.makeEditable = function(div){
+  //   console.log("div: ", div);
+  //   div.style.border = "1px solid #000";
+  //   div.style.padding = "20px";
+  //   div.contentEditable = true;
   // }
 
-  // $scope.savemissionp = function(){
-  //   console.log("savemissionp");
-  //   if ($scope.home) {
-  //     $scope.home.missionp = $scope.missionp; 
-  //     editablesFactory.update("missionp", function(data){
-  //       console.log("editablesFactory update data: ", data);
-  //       $scope.homeedit.missionp = false;
-  //     })
-  //   } else {
-  //     $scope.home = {
-  //       missionp: $scope.missionp 
-  //     }
-  //     editablesFactory.create($scope.home, function(data){
-  //       console.log("editablesFactory create data: ", data);
-  //       $scope.homeedit.missionp = false;
-  //     })
-  //   }
-    
+  // $scope.makeReadOnly = function(div, cb){
+  //   div.style.border = "none";
+  //   div.style.padding = "0px";
+  //   div.contentEditable = false;
+  //    // alert("Run Ajax POST request here to save the div.innerHTML \ or div.textContent to the database.");
+  //  console.log("Run Ajax POST request here to save the div.innerHTML \ or div.textContent to the database.");
+  //  cb(); 
   // }
-
-  // $scope.savehome = function(){
-  //   console.log("savehome");
-  // }
-
-  $scope.makeEditable = function(div){
-    console.log("div: ", div);
-    div.style.border = "1px solid #000";
-    div.style.padding = "20px";
-    div.contentEditable = true;
-  }
-
-  $scope.makeReadOnly = function(div, cb){
-    div.style.border = "none";
-    div.style.padding = "0px";
-    div.contentEditable = false;
-     // alert("Run Ajax POST request here to save the div.innerHTML \ or div.textContent to the database.");
-     console.log("Run Ajax POST request here to save the div.innerHTML \ or div.textContent to the database.");
-     cb(); 
-   }
-
-
-   
-
-  // $scope.users = [];
-  // console.log($scope.users);
 
 }])
-
-
-
-// app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactory', 'hometextsFactory', function($scope, $location, $localStorage, usersFactory, hometextsFactory){
-//   console.log("homeCtrl");
-//   $scope.loguser = null; 
-//   $scope.home = null; 
-//   $scope.missionp = defaulthome.missionp;
-//   $scope.homeedit = {
-//     missionp: false
-//   }
-  
-//   hometextsFactory.index(function(data){
-//     console.log("homeCtrl hometextsFactory index data: ", data);
-//     if (data) {
-//       console.log("data returns true");
-//       $scope.home = data; 
-//       if (data.missionp) { $scope.missionp = data.missionp; };
-//     };
-//     usersFactory.getUser(function(data){
-//       console.log("homeCtrl usersFactory getUser, ", data);
-//       if (data) {
-//         $scope.loguser = data; 
-//         // $scope.newcollection.owner = data.username;
-//         $scope.username = data.username;
-//         usersFactory.show($scope.username, function(data){
-//           console.log("homeCtrl usersFactory show: ");
-//           console.log("data , ", data);
-//           // $scope.loguser._collections = data._collections; 
-//         })
-//       };
-//     })
-//   })
-
-
-//   $scope.togglemissionp = function(){
-//     console.log("togglemissionp");
-//     $scope.homeedit.missionp = true; 
-//   }
-
-//   $scope.savemissionp = function(){
-//     console.log("savemissionp");
-//     if ($scope.home) {
-//       $scope.home.missionp = $scope.missionp; 
-//       hometextsFactory.update("missionp", function(data){
-//         console.log("hometextsFactory update data: ", data);
-//         $scope.homeedit.missionp = false;
-//       })
-//     } else {
-//       $scope.home = {
-//         missionp: $scope.missionp 
-//       }
-//       hometextsFactory.create($scope.home, function(data){
-//         console.log("hometextsFactory create data: ", data);
-//         $scope.homeedit.missionp = false;
-//       })
-//     }
-    
-//   }
-
-//   // $scope.savehome = function(){
-//   //   console.log("savehome");
-//   // }
-
-//   $scope.makeEditable = function(div){
-//     console.log("div: ", div);
-//     div.style.border = "1px solid #000";
-//     div.style.padding = "20px";
-//     div.contentEditable = true;
-//   }
-
-//   $scope.makeReadOnly = function(div, cb){
-//     div.style.border = "none";
-//     div.style.padding = "0px";
-//     div.contentEditable = false;
-//      // alert("Run Ajax POST request here to save the div.innerHTML \ or div.textContent to the database.");
-//      console.log("Run Ajax POST request here to save the div.innerHTML \ or div.textContent to the database.");
-//      cb(); 
-//    }
-
-
-
-
-//   // $scope.users = [];
-//   // console.log($scope.users);
-
-// }])
-
-
-
