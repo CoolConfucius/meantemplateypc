@@ -36,19 +36,6 @@ function EditablesController(){
     });
   };
 
-  // this.toggle = function(req, res){
-  //   Editable.findOne({_id: req.params.id}, function(err, editable){
-  //     editable.done = !editable.done; 
-  //     editable.save(function(err, editable){
-  //       if(err){
-  //         console.log('toggle method saving editable err ', err);
-  //       } else {
-  //         console.log('successfully toggled an editable! ', editable);
-  //         res.json(editable);
-  //       }
-  //     })    
-  //   })
-  // };
 
   this.update = function(req, res){
     console.log("editables controller update");
