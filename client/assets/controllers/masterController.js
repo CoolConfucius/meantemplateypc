@@ -2,10 +2,8 @@ console.log("masterCtrl");
 
 var app = angular.module('app');
 var defaulthome = {
-  h2_1: "Raise Funds, Volunteer, Promote Community Awareness &amp; Build Partnerships with the local business community",
-  ourpurpose: "Our Purpose",
-  mission: "MISSION",
-  missionp: "Recognizing the desire of young professionals in Santa Clara County to contribute to the welfare of their communities and connect with like-minded peers, the VMC Foundation is introducing The Young Professional Council (YPC). YPC supports the efforts of the VMC Foundation to provide critical funds for the creation of the Women and Children’s Center at VMC. The focus of the Young Professional Council is to raise funds, volunteer, promote community awareness, and build partnerships with the local business community."
+  missionp: "Recognizing the desire of young professionals in Santa Clara County to contribute to the welfare of their communities and connect with like-minded peers, the VMC Foundation is introducing The Young Professional Council (YPC). YPC supports the efforts of the VMC Foundation to provide critical funds for the creation of the Women and Children’s Center at VMC. The focus of the Young Professional Council is to raise funds, volunteer, promote community awareness, and build partnerships with the local business community.",
+  aboutusp: "The YPC is composed of emerging leaders in the business community who are dedicated to promoting the level of health care in the County of Santa Clara and addressing the current health-related issues affecting the community. Members, ages 21-35, contribute by engaging their energy and talents to advance the mission of the Santa Clara Valley Medical Center. These young leaders enhance the positive impact of the VMC Foundation while advancing their personal and professional goals and expanding their professional networks."
 }
 
 app.controller('navCtrl', ['$scope', '$state', '$location', 'usersFactory', function($scope, $state, $location, usersFactory){
@@ -92,12 +90,30 @@ app.controller('registerCtrl', ['$scope', '$state', '$localStorage', 'usersFacto
 
 app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactory', 'editablesFactory', function($scope, $location, $localStorage, usersFactory, editablesFactory){
   console.log("homeCtrl");
-  var homenames = ['missionp']; 
+  var homenames = ['missionp', 'aboutusp', 'member1', 'member1p', 'member2', 'member2p', 'member3', 'member3p', 'member4', 'member4p']; 
   $scope.loguser = null; 
   $scope.editables = null; 
   $scope.missionp = defaulthome.missionp;
+  $scope.aboutusp = defaulthome.aboutusp;
+  $scope.member1 = defaulthome.member1;
+  $scope.member1p = defaulthome.member1p;
+  $scope.member2 = defaulthome.member2;
+  $scope.member2p = defaulthome.member2p;
+  $scope.member3 = defaulthome.member3;
+  $scope.member3p = defaulthome.member3p;
+  $scope.member4 = defaulthome.member4;
+  $scope.member4p = defaulthome.member4p;
   $scope.homeedit = {
-    missionp: false
+    missionp: false,
+    aboutusp: false,
+    member1: false,
+    member1p: false,
+    member2: false,
+    member2p: false,
+    member3: false,
+    member3p: false,
+    member4: false,
+    member4p: false
   }
   
   editablesFactory.index(function(data){
@@ -112,7 +128,6 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
           }
         })
       })
-      // if (data.missionp) { $scope.missionp = data.missionp; };
     };
     usersFactory.getUser(function(data){
       console.log("homeCtrl usersFactory getUser, ", data);
@@ -157,6 +172,17 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
           })
         };
         
+      })
+      var neweditable = {
+        name: name,
+        content: $scope[name],
+        page: "home"
+      }
+      $scope.editables.push(neweditable); 
+      editablesFactory.create(neweditable, function(data){
+        console.log("editablesFactory create data: ", data);
+        $scope.homeedit[name] = false;
+        return; 
       })
     } else {
       var neweditable = {
