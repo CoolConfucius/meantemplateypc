@@ -137,24 +137,39 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
 
   $scope.saveeditable = function(name){
     console.log("saveeditable ", name);
-    if ($scope.editables) {
-      $scope.editables[name] = $scope[name]; 
-      editablesFactory.update(name, $scope[name], function(data){
-        console.log("editablesFactory update data: ", data);
-        $scope.homeedit[name] = false;
+    if ($scope.editables.length > 0) {
+      // console.log("$scope.editables: ", $scope.editables);
+      $scope.editables.forEach(function(editable, index){
+        if (editable.name === name) {
+          if ($scope[name] === editable.content) {
+            $scope.homeedit[name] = false;
+            return; 
+          };
+          var updatededitable = {
+            name: name,
+            content: $scope[name],
+            page: "home"
+          }
+          $scope.editables[index].content = $scope[name]; 
+          editablesFactory.update(updatededitable, function(data){
+            console.log("editablesFactory update data: ", data);
+            $scope.homeedit[name] = false;
+            return; 
+          })
+        };
+        
       })
     } else {
-      $scope.editables = {
-        [name]: $scope[name] 
-      }
       var neweditable = {
         name: name,
         content: $scope[name],
         page: "home"
       }
+      $scope.editables.push(neweditable); 
       editablesFactory.create(neweditable, function(data){
         console.log("editablesFactory create data: ", data);
         $scope.homeedit[name] = false;
+        return; 
       })
     }
     

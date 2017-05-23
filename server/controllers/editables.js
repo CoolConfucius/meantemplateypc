@@ -29,38 +29,42 @@ function EditablesController(){
       content: editable.content,
       page: editable.page
     });
-    neweditable.save(function(err, savedAll) {
-      console.log("neweditable save: ,", err, savedAll);
+    neweditable.save(function(err, savedEditable) {
+      console.log("neweditable save: ,", err, savedEditable);
       if (err) res.send(err);
-      res.json(savedAll);
+      res.json(savedEditable);
     });
   };
 
-  this.toggle = function(req, res){
-    Editable.findOne({_id: req.params.id}, function(err, editable){
-      editable.done = !editable.done; 
-      editable.save(function(err, editable){
-        if(err){
-          console.log('toggle method saving editable err ', err);
-        } else {
-          console.log('successfully toggled an editable! ', editable);
-          res.json(editable);
-        }
-      })    
-    })
-  };
+  // this.toggle = function(req, res){
+  //   Editable.findOne({_id: req.params.id}, function(err, editable){
+  //     editable.done = !editable.done; 
+  //     editable.save(function(err, editable){
+  //       if(err){
+  //         console.log('toggle method saving editable err ', err);
+  //       } else {
+  //         console.log('successfully toggled an editable! ', editable);
+  //         res.json(editable);
+  //       }
+  //     })    
+  //   })
+  // };
 
   this.update = function(req, res){
-    var editlink = {
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
-      birthday: req.body.birthday
+    console.log("editables controller update");
+    console.log("req params: ", req.params);
+    console.log("req body: ", req.body);
+    var editeditable = {
+      name: req.body.name,
+      content: req.body.content,
+      page: req.body.page
     }
-    Editable.findOneAndUpdate({_id: req.params.id}, editlink, function(err, editable){
+    Editable.findOneAndUpdate({name: req.params.name}, editeditable, function(err, editable){
       res.json(editable);
     })
 
   };
+
   this.delete = function(req, res){
     console.log("editables delete req params ", req.params);
     Editable.remove({_id: req.params.id}, function(err){

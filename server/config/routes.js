@@ -14,9 +14,9 @@ module.exports = function(app){
   app.put('/users/:username', users.update)
   app.delete('/users/:id', users.delete)
 
+  app.get('/editables', editables.index)
   app.post('/editables', editables.create)
   app.put('/editables/:name', editables.update)
-  app.get('/editables', editables.index)
 
   // app.get('/hometexts', hometexts.index)
   // app.post('/testing', hometexts.testing)
