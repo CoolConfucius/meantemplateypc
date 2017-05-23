@@ -92,7 +92,7 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
   console.log("homeCtrl");
   var homenames = ['missionp', 'aboutusp', 'member1', 'member1p', 'member2', 'member2p', 'member3', 'member3p', 'member4', 'member4p']; 
   $scope.loguser = null; 
-  $scope.editables = null; 
+  $scope.editables = []; 
   $scope.missionp = defaulthome.missionp;
   $scope.aboutusp = defaulthome.aboutusp;
   $scope.member1 = defaulthome.member1;
@@ -152,6 +152,20 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
 
   $scope.saveeditable = function(name){
     console.log("saveeditable ", name);
+    var createneweditable = () => {
+      var neweditable = {
+        name: name,
+        content: $scope[name],
+        page: "home"
+      }
+      $scope.editables.push(neweditable); 
+      editablesFactory.create(neweditable, function(data){
+        console.log("editablesFactory create data: ", data);
+        $scope.homeedit[name] = false;
+        return; 
+      })
+    }
+
     if ($scope.editables.length > 0) {
       $scope.editables.forEach(function(editable, index){
         if (editable.name === name) {
@@ -173,29 +187,9 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
         };
         
       })
-      var neweditable = {
-        name: name,
-        content: $scope[name],
-        page: "home"
-      }
-      $scope.editables.push(neweditable); 
-      editablesFactory.create(neweditable, function(data){
-        console.log("editablesFactory create data: ", data);
-        $scope.homeedit[name] = false;
-        return; 
-      })
+      createneweditable(); 
     } else {
-      var neweditable = {
-        name: name,
-        content: $scope[name],
-        page: "home"
-      }
-      $scope.editables.push(neweditable); 
-      editablesFactory.create(neweditable, function(data){
-        console.log("editablesFactory create data: ", data);
-        $scope.homeedit[name] = false;
-        return; 
-      })
+      createneweditable(); 
     }
     
   }
