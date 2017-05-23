@@ -104,8 +104,8 @@ app.factory('hometextsFactory', ['$http', '$localStorage', '$rootScope', functio
   var hometext = {}; 
   function HometextsFactory(){
 
-    this.create = function(newlink, callback){
-      $http.post('/hometexts', newlink).then(function(returned_data){
+    this.create = function(newhome, callback){
+      $http.post('/hometexts', newhome).then(function(returned_data){
         console.log("returned_data: ", returned_data.data);
         if (typeof(callback) == 'function'){
           callback(returned_data.data);
@@ -113,14 +113,23 @@ app.factory('hometextsFactory', ['$http', '$localStorage', '$rootScope', functio
       });
     };
 
-    this.toggle = function(id, callback){ 
-      $http.put(`/hometexts/${id}`).then(function(data){
+    this.update = function(name, callback){ 
+      $http.put(`/hometexts/${name}`).then(function(data){
         console.log(data);
         if (typeof(callback) == 'function'){
           callback(data.data);
         }
       })
     };
+
+    // this.toggle = function(id, callback){ 
+    //   $http.put(`/hometexts/${id}`).then(function(data){
+    //     console.log(data);
+    //     if (typeof(callback) == 'function'){
+    //       callback(data.data);
+    //     }
+    //   })
+    // };
 
 
     this.index = function(callback){

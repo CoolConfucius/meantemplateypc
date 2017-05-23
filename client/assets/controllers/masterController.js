@@ -92,14 +92,18 @@ app.controller('registerCtrl', ['$scope', '$state', '$localStorage', 'usersFacto
 app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactory', 'hometextsFactory', function($scope, $location, $localStorage, usersFactory, hometextsFactory){
   console.log("homeCtrl");
   $scope.loguser = null; 
+  $scope.home = null; 
   $scope.missionp = defaulthome.missionp;
+  $scope.homeedit = {
+    missionp: false
+  }
   
   hometextsFactory.index(function(data){
-    console.log("homeCtrl hometextsFactory index, ", data);
+    console.log("homeCtrl hometextsFactory index data: ", data);
     if (data) {
-      if (data.missionp) {
-        $scope.missionp = data.missionp;
-      };
+      console.log("data returns true");
+      $scope.home = data; 
+      if (data.missionp) { $scope.missionp = data.missionp; };
     };
     usersFactory.getUser(function(data){
       console.log("homeCtrl usersFactory getUser, ", data);
@@ -115,6 +119,32 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
       };
     })
   })
+
+
+  $scope.togglemissionp = function(){
+    console.log("togglemissionp");
+    $scope.homeedit.missionp = true; 
+  }
+
+  $scope.savemissionp = function(){
+    console.log("savemissionp");
+    if ($scope.home) {
+      $scope.home.missionp = $scope.missionp; 
+      hometextsFactory.update("missionp", function(data){
+        console.log("hometextsFactory update data: ", data);
+        $scope.homeedit.missionp = false;
+      })
+    } else {
+      $scope.home = {
+        missionp: $scope.missionp 
+      }
+      hometextsFactory.create($scope.home, function(data){
+        console.log("hometextsFactory create data: ", data);
+        $scope.homeedit.missionp = false;
+      })
+    }
+    
+  }
 
   $scope.savehome = function(){
     console.log("savehome");

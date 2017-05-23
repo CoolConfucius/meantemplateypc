@@ -9,6 +9,7 @@ function HometextsController(){
   this.index = function(req, res){
     console.log("hometexts index");
     Hometext.find({}, function(err, hometexts){
+      console.log("Found hometext: ", hometexts);
       if(err) res.status(400).send(err);
       res.json(hometexts);
     })
@@ -23,39 +24,13 @@ function HometextsController(){
   this.create = function(req, res){
     console.log("create home: ", req.body);
     var home = req.body; 
-    var newlink = new Hometext({
-      collection: home.collection,
-      collectionid: home.collectionid,
-      url: home.url,
-      title: home.title,
-      description: home.description,
-      tags: home.tags,
-      addedby: home.addedby
+    var newhome = new Hometext({
+      missionp: home.missionp
     });
-    newlink.save(function(err, savedHome) {
-      console.log("newlink save: ,", err, savedHome);
+    newhome.save(function(err, savedHome) {
+      console.log("newhome save: ,", err, savedHome);
       if (err) res.send(err);
-      
-      Collection.findById(savedHome.collectionid, function(err, collection){
-        if (err || !collection) return res.status(400).send(err); 
-        collection._links.push(savedHome._id);
-        
-        
-        collection.recentby = savedHome.addedby; 
-        collection.save(function(err, savedStory){
-          if (savedHome.addedby) {
-            User.findOne({username: savedHome.addedby}, function(err, user){
-              if (err || !user) return res.status(400).send(err); 
-              user._links.push(savedHome._id);
-              user.save(function(err, savedUser){
-                res.send(savedHome);
-              })
-            })
-          } else 
-          res.json(savedHome);
-        })
-      })
-
+      res.json(savedHome);
     });
   };
 

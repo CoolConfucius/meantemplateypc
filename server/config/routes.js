@@ -16,6 +16,7 @@ module.exports = function(app){
 
   app.get('/hometexts', hometexts.index)
   app.post('/testing', hometexts.testing)
+  
   // app.post('/hometexts/register', hometexts.create)
   // app.post('/hometexts/login', hometexts.login)
   

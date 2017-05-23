@@ -24,11 +24,10 @@
     <div class="container">
       <div class="row row-pb-md">
         <div class="col-md-8 col-md-offset-2 text-left fh5co-heading  animate-box">
-          <div ng-dblclick="makeEditable(this)" ng-blur="makeReadOnly(this, savehome)">
           <span>Our Purpose</span>
           <h2>MISSION</h2>
-          <p ng-bind="missionp">Recognizing the desire of young professionals in Santa Clara County to contribute to the welfare of their communities and connect with like-minded peers, the VMC Foundation is introducing The Young Professional Council (YPC). YPC supports the efforts of the VMC Foundation to provide critical funds for the creation of the Women and Children’s Center at VMC. The focus of the Young Professional Council is to raise funds, volunteer, promote community awareness, and build partnerships with the local business community.</p>
-        </div>
+          <p ng-hide="homeedit.missionp" ng-bind="missionp" ng-dblclick="togglemissionp()">Recognizing the desire of young professionals in Santa Clara County to contribute to the welfare of their communities and connect with like-minded peers, the VMC Foundation is introducing The Young Professional Council (YPC). YPC supports the efforts of the VMC Foundation to provide critical funds for the creation of the Women and Children’s Center at VMC. The focus of the Young Professional Council is to raise funds, volunteer, promote community awareness, and build partnerships with the local business community.</p>
+          <textarea type="text" ng-show="homeedit.missionp" ng-model="missionp" ng-blur="savemissionp()"></textarea>
         </div>
       </div>
     </div>
