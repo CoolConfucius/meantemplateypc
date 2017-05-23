@@ -1,6 +1,7 @@
 console.log('routes js');
 var users = require('./../controllers/users.js');
-var hometexts = require('./../controllers/hometexts.js');
+// var hometexts = require('./../controllers/hometexts.js');
+var editables = require('./../controllers/editables.js');
 
 module.exports = function(app){
 
@@ -13,9 +14,12 @@ module.exports = function(app){
   app.put('/users/:username', users.update)
   app.delete('/users/:id', users.delete)
 
+  app.post('/editables', editables.create)
+  app.put('/editables/:name', editables.update)
+  app.get('/editables', editables.index)
 
-  app.get('/hometexts', hometexts.index)
-  app.post('/testing', hometexts.testing)
+  // app.get('/hometexts', hometexts.index)
+  // app.post('/testing', hometexts.testing)
   
   // app.post('/hometexts/register', hometexts.create)
   // app.post('/hometexts/login', hometexts.login)

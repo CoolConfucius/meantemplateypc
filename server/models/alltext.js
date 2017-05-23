@@ -6,7 +6,7 @@ var Schema = mongoose.Schema;
 
 var AlltextSchema = new mongoose.Schema({
 
-  home: { type: type: mongoose.Schema.Types.ObjectId, ref: "Hometext" }
+  home: { type: mongoose.Schema.Types.ObjectId, ref: "Hometext" }
 
 })
 

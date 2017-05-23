@@ -99,13 +99,14 @@ app.factory('usersFactory', ['$http', '$localStorage', '$rootScope', function($h
 }])
 
 
-app.factory('hometextsFactory', ['$http', '$localStorage', '$rootScope', function($http, $localStorage, $rootScope){
-  var hometexts = []; 
-  var hometext = {}; 
-  function HometextsFactory(){
 
-    this.create = function(newhome, callback){
-      $http.post('/hometexts', newhome).then(function(returned_data){
+app.factory('editablesFactory', ['$http', '$localStorage', '$rootScope', function($http, $localStorage, $rootScope){
+  var editables = []; 
+  var editable = {}; 
+  function EditablesFactory(){
+
+    this.create = function(neweditable, callback){
+      $http.post('/editables', neweditable).then(function(returned_data){
         console.log("returned_data: ", returned_data.data);
         if (typeof(callback) == 'function'){
           callback(returned_data.data);
@@ -113,8 +114,8 @@ app.factory('hometextsFactory', ['$http', '$localStorage', '$rootScope', functio
       });
     };
 
-    this.update = function(name, callback){ 
-      $http.put(`/hometexts/${name}`).then(function(data){
+    this.update = function(name, content, callback){ 
+      $http.put(`/editables/${name}`, content).then(function(data){
         console.log(data);
         if (typeof(callback) == 'function'){
           callback(data.data);
@@ -122,36 +123,85 @@ app.factory('hometextsFactory', ['$http', '$localStorage', '$rootScope', functio
       })
     };
 
-    // this.toggle = function(id, callback){ 
-    //   $http.put(`/hometexts/${id}`).then(function(data){
-    //     console.log(data);
-    //     if (typeof(callback) == 'function'){
-    //       callback(data.data);
-    //     }
-    //   })
-    // };
 
 
     this.index = function(callback){
-      console.log("hometexts factory index method");
-      $http.get('/hometexts').then(function(returned_data){
-        console.log("hometexts factory get hometexts: ", returned_data.data);
-        hometexts = returned_data.data;
-        // hometexts = {
-        //   missionp: "text works?"
-        // }
-        callback(hometexts);
+      console.log("editables factory index method");
+      $http.get('/editables').then(function(returned_data){
+        console.log("editables factory get editables: ", returned_data.data);
+        editables = returned_data.data;
+        callback(editables);
       });
 
     };
 
-    this.getHometexts = function(callback){
-      callback(hometexts);
+    this.getEditables = function(callback){
+      callback(editables);
     };
-    this.getHometext = function(callback){
-      callback(hometext);
+    this.getEditable = function(callback){
+      callback(editable);
     };
   }
   
-  return new HometextsFactory();
+  return new EditablesFactory();
 }])
+
+
+
+
+// app.factory('hometextsFactory', ['$http', '$localStorage', '$rootScope', function($http, $localStorage, $rootScope){
+//   var hometexts = []; 
+//   var hometext = {}; 
+//   function HometextsFactory(){
+
+//     this.create = function(newhome, callback){
+//       $http.post('/hometexts', newhome).then(function(returned_data){
+//         console.log("returned_data: ", returned_data.data);
+//         if (typeof(callback) == 'function'){
+//           callback(returned_data.data);
+//         }
+//       });
+//     };
+
+//     this.update = function(name, callback){ 
+//       $http.put(`/hometexts/${name}`).then(function(data){
+//         console.log(data);
+//         if (typeof(callback) == 'function'){
+//           callback(data.data);
+//         }
+//       })
+//     };
+
+//     // this.toggle = function(id, callback){ 
+//     //   $http.put(`/hometexts/${id}`).then(function(data){
+//     //     console.log(data);
+//     //     if (typeof(callback) == 'function'){
+//     //       callback(data.data);
+//     //     }
+//     //   })
+//     // };
+
+
+//     this.index = function(callback){
+//       console.log("hometexts factory index method");
+//       $http.get('/hometexts').then(function(returned_data){
+//         console.log("hometexts factory get hometexts: ", returned_data.data);
+//         hometexts = returned_data.data;
+//         // hometexts = {
+//         //   missionp: "text works?"
+//         // }
+//         callback(hometexts);
+//       });
+
+//     };
+
+//     this.getHometexts = function(callback){
+//       callback(hometexts);
+//     };
+//     this.getHometext = function(callback){
+//       callback(hometext);
+//     };
+//   }
+  
+//   return new HometextsFactory();
+// }])

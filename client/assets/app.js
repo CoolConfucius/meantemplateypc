@@ -37,10 +37,10 @@ app.config(function($stateProvider, $urlRouterProvider){
   $urlRouterProvider.otherwise('/');
 });
 
-app.run(function($rootScope, usersFactory, hometextsFactory){
+app.run(function($rootScope, usersFactory, editablesFactory){
   console.log("App.run! ");
-  hometextsFactory.getHometext(function(data){
-    $rootScope.roothometext = data; 
+  editablesFactory.index(function(data){
+    $rootScope.rooteditables = data; 
   }); 
   usersFactory.getUser(function(data){
     $rootScope.rootuser = data; 
