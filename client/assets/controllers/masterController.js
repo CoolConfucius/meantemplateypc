@@ -146,6 +146,11 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
 
 
   $scope.toggleeditable = function(name){
+    // console.log("$scope loguser: ", $scope.loguser);
+    if (!$scope.loguser || !$scope.loguser.admin) {
+      console.log("Not logged in as an admin. Login as admin to edit");
+      return; 
+    };
     console.log("toggleeditable ", name);
     $scope['homeedit'][name] = true; 
   }
