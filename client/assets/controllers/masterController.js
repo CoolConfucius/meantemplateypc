@@ -161,6 +161,7 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
     console.log("saveeditable ", name);
     var createneweditable = () => {
       if ($scope[name] === defaulthome[name]) { 
+        console.log("Same as default, no changes.");
         $scope.homeedit[name] = false;
         return; 
       };
@@ -178,12 +179,16 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
     }
 
     if ($scope.editables.length > 0) {
-      $scope.editables.forEach(function(editable, index){
+      console.log("$scope editables: ", $scope.editables);
+      var index = 0; 
+      while(index < $scope.editables.length){
+        var editable = $scope.editables[index]
         if (editable.name === name) {
           if ($scope[name] === editable.content) {
             $scope.homeedit[name] = false;
             return; 
           };
+          console.log("content has changed");
           var updatededitable = {
             name: name,
             content: $scope[name],
@@ -195,11 +200,14 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
             $scope.homeedit[name] = false;
             return; 
           })
+          return; 
         };
-        
-      })
+        index++; 
+      }
+      console.log("Here? akjlsdfjsadfl;sdjl;");
       createneweditable(); 
     } else {
+      console.log("Or Here? akjlsdfjsadfl;sdjlads fdsaf;");
       createneweditable(); 
     }
     

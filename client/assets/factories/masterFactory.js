@@ -115,9 +115,8 @@ app.factory('editablesFactory', ['$http', '$localStorage', '$rootScope', functio
     };
 
     this.update = function(updatededitable, callback){ 
-      var name = updatededitable.name
-      console.log("name: ", name);
       console.log("content: ", updatededitable.content);
+      var name = updatededitable.name; 
       $http.put(`/editables/${name}`, updatededitable).then(function(data){
         console.log(data);
         if (typeof(callback) == 'function'){
