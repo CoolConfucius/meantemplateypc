@@ -13,14 +13,17 @@ var UserSchema = new mongoose.Schema({
 }, {timestamps: true})
 
 UserSchema.methods.token = function() {
-  console.log("this: ", this);
+  console.log("User Schema token method this: ", this);
   var payload = {
     username: this.username,
     admin: this.admin,
     _id: this._id
   };
+  console.log("User Schema token method payload: ", payload);
+
   var secret = process.env.JWT_SECRET;
   var token = jwt.encode(payload, secret);
+  console.log("UserSchema return token: ", token);
   return token;
 };
 

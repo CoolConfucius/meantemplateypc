@@ -138,7 +138,7 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
         usersFactory.show($scope.username, function(data){
           console.log("homeCtrl usersFactory show: ");
           console.log("data , ", data);
-          // $scope.loguser._collections = data._collections; 
+          $scope.loguser.admin = data.admin; 
         })
       };
     })
@@ -146,9 +146,11 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
 
 
   $scope.toggleeditable = function(name){
-    // console.log("$scope loguser: ", $scope.loguser);
-    if (!$scope.loguser || !$scope.loguser.admin) {
-      console.log("Not logged in as an admin. Login as admin to edit");
+    console.log("$localStorage token", $localStorage.token);
+    console.log("$scope loguser: ", $scope.loguser);
+    if (!$localStorage.token || !$scope.loguser || !$scope.loguser.admin) {
+      swal("Not logged in as an admin. Login as admin to edit");
+      // console.log("Not logged in as an admin. Login as admin to edit");
       return; 
     };
     console.log("toggleeditable ", name);

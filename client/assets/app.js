@@ -43,6 +43,7 @@ app.run(function($rootScope, usersFactory, editablesFactory){
     $rootScope.rooteditables = data; 
   }); 
   usersFactory.getUser(function(data){
+    console.log("app run usersFactor getUser data: ", data);
     $rootScope.rootuser = data; 
   }); 
 })

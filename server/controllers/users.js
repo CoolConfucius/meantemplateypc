@@ -72,7 +72,9 @@ function UsersController(){
           } else {
             console.log("Password is good! ");
             dbUser.password = null; 
+            console.log("Login in dbUser: ", dbUser);
             var token = dbUser.token(); 
+            console.log("User Login Token: ", token);
             res.status(200).json(token); 
           }
         })
