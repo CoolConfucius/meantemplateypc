@@ -160,6 +160,10 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
   $scope.saveeditable = function(name){
     console.log("saveeditable ", name);
     var createneweditable = () => {
+      if ($scope[name] === defaulthome[name]) { 
+        $scope.homeedit[name] = false;
+        return; 
+      };
       var neweditable = {
         name: name,
         content: $scope[name],
