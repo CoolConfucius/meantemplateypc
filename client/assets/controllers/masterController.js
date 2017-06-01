@@ -7,7 +7,10 @@ var defaulthome = {
   missionp: "Recognizing the desire of young professionals in Santa Clara County to contribute to the welfare of their communities and connect with like-minded peers, the VMC Foundation is introducing The Young Professional Council (YPC). YPC supports the efforts of the VMC Foundation to provide critical funds for the creation of the Women and Children’s Center at VMC. The focus of the Young Professional Council is to raise funds, volunteer, promote community awareness, and build partnerships with the local business community.",
   whoweare: "Who we are",
   aboutus: "ABOUT US",
-  aboutusp: "The YPC is composed of emerging leaders in the business community who are dedicated to promoting the level of health care in the County of Santa Clara and addressing the current health-related issues affecting the community. Members, ages 21-35, contribute by engaging their energy and talents to advance the mission of the Santa Clara Valley Medical Center. These young leaders enhance the positive impact of the VMC Foundation while advancing their personal and professional goals and expanding their professional networks."
+  aboutusp: "The YPC is composed of emerging leaders in the business community who are dedicated to promoting the level of health care in the County of Santa Clara and addressing the current health-related issues affecting the community. Members, ages 21-35, contribute by engaging their energy and talents to advance the mission of the Santa Clara Valley Medical Center. These young leaders enhance the positive impact of the VMC Foundation while advancing their personal and professional goals and expanding their professional networks.",
+  connectwith: "Connect with like-minded professionals",
+  happy: "HAPPY MEMBERS",
+  happyp: "Come see what the community has to say about their experience with YPC.",
 }
 
 app.controller('navCtrl', ['$scope', '$state', '$location', 'usersFactory', function($scope, $state, $location, usersFactory){
