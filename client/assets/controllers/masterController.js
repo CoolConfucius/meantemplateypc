@@ -12,7 +12,13 @@ var defaulthome = {
   happy: "HAPPY MEMBERS",
   happyp: "Come see what the community has to say about their experience with YPC.",
   member1p: "Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.",
-  member1: "Mike Adam"
+  member1: "Mike Adam",
+  member2p: "Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius. Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.",
+  member2: "Eric Miller",
+  member3p: "Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.",
+  member3: "Mike Adam",
+  member4p: "Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.",
+  member4: "Mike Adam"
 }
 
 app.controller('navCtrl', ['$scope', '$state', '$location', 'usersFactory', function($scope, $state, $location, usersFactory){
