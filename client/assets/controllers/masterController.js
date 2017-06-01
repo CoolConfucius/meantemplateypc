@@ -11,7 +11,7 @@ var defaulthome = {
   connectwith: "Connect with like-minded professionals",
   happy: "HAPPY MEMBERS",
   happyp: "Come see what the community has to say about their experience with YPC.",
-  member1p: "&ldquo;Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.&rdquo;",
+  member1p: "Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.",
   member1: "Mike Adam"
 }
 

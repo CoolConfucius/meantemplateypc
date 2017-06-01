@@ -75,8 +75,13 @@
           <div class="testimonial">
             <!-- <div ondblclick="makeEditable(this)" onblur="makeReadOnly(this)"> -->
             <blockquote>
-              <p>&ldquo;Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.&rdquo;</p>
-              <p class="author"> <img src="../assets/images/person1.jpg"> <cite>&mdash; Mike Adam</cite></p>
+              <p ng-hide="homeedit.member1p" ng-dblclick="toggleeditable('member1p')">&ldquo;{{member1p}}&rdquo;</p>
+              <textarea type="text" ng-show="homeedit.member1p" ng-model="member1p" ng-blur="saveeditable('member1p')"></textarea>
+              <p class="author"> 
+                <img src="../assets/images/person1.jpg"> 
+                <cite ng-hide="homeedit.member1" ng-dblclick="toggleeditable('member1')">&mdash; {{member1}}</cite>
+                <input type="text" ng-show="homeedit.member1" ng-model="member1" ng-blur="saveeditable('member1')">
+              </p>
             </blockquote>
           <!-- </div> -->
           </div>
