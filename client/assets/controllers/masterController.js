@@ -5,6 +5,8 @@ var defaulthome = {
   ourpurpose: "Our Purpose",
   mission: "MISSION",
   missionp: "Recognizing the desire of young professionals in Santa Clara County to contribute to the welfare of their communities and connect with like-minded peers, the VMC Foundation is introducing The Young Professional Council (YPC). YPC supports the efforts of the VMC Foundation to provide critical funds for the creation of the Women and Children’s Center at VMC. The focus of the Young Professional Council is to raise funds, volunteer, promote community awareness, and build partnerships with the local business community.",
+  whoweare: "Who we are",
+  aboutus: "ABOUT US",
   aboutusp: "The YPC is composed of emerging leaders in the business community who are dedicated to promoting the level of health care in the County of Santa Clara and addressing the current health-related issues affecting the community. Members, ages 21-35, contribute by engaging their energy and talents to advance the mission of the Santa Clara Valley Medical Center. These young leaders enhance the positive impact of the VMC Foundation while advancing their personal and professional goals and expanding their professional networks."
 }
 
@@ -92,12 +94,14 @@ app.controller('registerCtrl', ['$scope', '$state', '$localStorage', 'usersFacto
 
 app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactory', 'editablesFactory', function($scope, $location, $localStorage, usersFactory, editablesFactory){
   console.log("homeCtrl");
-  var homenames = ['ourpurpose', 'mission', 'missionp', 'aboutusp', 'member1', 'member1p', 'member2', 'member2p', 'member3', 'member3p', 'member4', 'member4p']; 
+  var homenames = ['ourpurpose', 'mission', 'missionp', 'whoweare', 'aboutus', 'aboutusp', 'member1', 'member1p', 'member2', 'member2p', 'member3', 'member3p', 'member4', 'member4p']; 
   $scope.loguser = null; 
   $scope.editables = []; 
   $scope.ourpurpose = defaulthome.ourpurpose;
   $scope.mission = defaulthome.mission;
   $scope.missionp = defaulthome.missionp;
+  $scope.whoweare = defaulthome.whoweare;
+  $scope.aboutus = defaulthome.aboutus;
   $scope.aboutusp = defaulthome.aboutusp;
   $scope.member1 = defaulthome.member1;
   $scope.member1p = defaulthome.member1p;
@@ -111,6 +115,8 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
     ourpurpose: false,
     mission: false,
     missionp: false,
+    whoweare: false,
+    aboutus: false,
     aboutusp: false,
     member1: false,
     member1p: false,

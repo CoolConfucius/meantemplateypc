@@ -43,8 +43,10 @@
         <div class="col-md-8 col-md-offset-2 text-left animate-box" data-animate-effect="fadeInUp">
           <div class="fh5co-heading">
             <!-- <div ondblclick="makeEditable(this)" onblur="makeReadOnly(this)"> -->
-            <span>Who we are</span>
-            <h2>ABOUT US</h2>
+            <span ng-hide="homeedit.whoweare" ng-bind="whoweare" ng-dblclick="toggleeditable('whoweare')">Who we are</span>
+            <input type="text" ng-show="homeedit.whoweare" ng-model="whoweare" ng-blur="saveeditable('whoweare')">
+            <h2 ng-hide="homeedit.aboutus" ng-bind="aboutus" ng-dblclick="toggleeditable('aboutus')">ABOUT US</h2>
+            <input type="text" ng-show="homeedit.aboutus" ng-model="aboutus" ng-blur="saveeditable('aboutus')">
             <p ng-hide="homeedit.aboutusp" ng-bind="aboutusp" ng-dblclick="toggleeditable('aboutusp')">The YPC is composed of emerging leaders in the business community who are dedicated to promoting the level of health care in the County of Santa Clara and addressing the current health-related issues affecting the community. Members, ages 21-35, contribute by engaging their energy and talents to advance the mission of the Santa Clara Valley Medical Center. These young leaders enhance the positive impact of the VMC Foundation while advancing their personal and professional goals and expanding their professional networks.</p>
             <textarea type="text" ng-show="homeedit.aboutusp" ng-model="aboutusp" ng-blur="saveeditable('aboutusp')"></textarea>
           <!-- </div> -->
