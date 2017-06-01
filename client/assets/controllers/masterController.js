@@ -92,7 +92,7 @@ app.controller('registerCtrl', ['$scope', '$state', '$localStorage', 'usersFacto
 
 app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactory', 'editablesFactory', function($scope, $location, $localStorage, usersFactory, editablesFactory){
   console.log("homeCtrl");
-  var homenames = ['missionp', 'aboutusp', 'member1', 'member1p', 'member2', 'member2p', 'member3', 'member3p', 'member4', 'member4p']; 
+  var homenames = ['ourpurpose', 'mission', 'missionp', 'aboutusp', 'member1', 'member1p', 'member2', 'member2p', 'member3', 'member3p', 'member4', 'member4p']; 
   $scope.loguser = null; 
   $scope.editables = []; 
   $scope.ourpurpose = defaulthome.ourpurpose;
