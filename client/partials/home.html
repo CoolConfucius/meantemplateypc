@@ -10,8 +10,13 @@
               <h2 class="mb30">Raise Funds, Volunteer, Promote Community Awareness &amp; Build Partnerships with the local business community</h2>
               <p>
               <!-- </div> -->
-                <a href="#!/join" target="_blank" class="btn btn-primary">Join</a>  <em class="or">or</em>
-                <a href="#!/donate">Donate</a>
+                <a ng-hide="homeedit.join" ng-bind="join" href="#!/join" target="_blank" class="btn btn-primary">Join</a>
+                <span ng-if="token && loguser && loguser.admin" ng-hide="homeedit.join" ng-click="toggleeditable('join')" class="glyphicon glyphicon-pencil"></span>
+                <input type="text" ng-show="homeedit.join" ng-model="join" ng-blur="saveeditable('join')">
+                <em class="or">or</em>
+                <a ng-hide="homeedit.donate" ng-bind="donate" href="#!/donate">Donate</a>
+                <span ng-if="token && loguser && loguser.admin" ng-hide="homeedit.donate" ng-click="toggleeditable('donate')" class="glyphicon glyphicon-pencil"></span>
+                <input type="text" ng-show="homeedit.donate" ng-model="donate" ng-blur="saveeditable('donate')">
               </p>
             </div>
           </div>

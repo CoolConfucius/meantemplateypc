@@ -2,6 +2,8 @@ console.log("masterCtrl");
 
 var app = angular.module('app');
 var defaulthome = {
+  join: "Join",
+  donate: "Donate",
   ourpurpose: "Our Purpose",
   mission: "MISSION",
   missionp: "Recognizing the desire of young professionals in Santa Clara County to contribute to the welfare of their communities and connect with like-minded peers, the VMC Foundation is introducing The Young Professional Council (YPC). YPC supports the efforts of the VMC Foundation to provide critical funds for the creation of the Women and Children’s Center at VMC. The focus of the Young Professional Council is to raise funds, volunteer, promote community awareness, and build partnerships with the local business community.",
@@ -105,9 +107,12 @@ app.controller('registerCtrl', ['$scope', '$state', '$localStorage', 'usersFacto
 
 app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactory', 'editablesFactory', function($scope, $location, $localStorage, usersFactory, editablesFactory){
   console.log("homeCtrl");
-  var homenames = ['ourpurpose', 'mission', 'missionp', 'whoweare', 'aboutus', 'aboutusp', 'connectwith', 'happy', 'happyp', 'member1p', 'member1', 'member2p', 'member2', 'member3p', 'member3', 'member4p', 'member4']; 
+  var homenames = ['join', 'donate', 'ourpurpose', 'mission', 'missionp', 'whoweare', 'aboutus', 'aboutusp', 'connectwith', 'happy', 'happyp', 'member1p', 'member1', 'member2p', 'member2', 'member3p', 'member3', 'member4p', 'member4']; 
   $scope.loguser = null; 
+  $scope.token = $localStorage.token; 
   $scope.editables = []; 
+  $scope.join = defaulthome.join;
+  $scope.donate = defaulthome.donate;
   $scope.ourpurpose = defaulthome.ourpurpose;
   $scope.mission = defaulthome.mission;
   $scope.missionp = defaulthome.missionp;
@@ -126,6 +131,8 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
   $scope.member4p = defaulthome.member4p;
   $scope.member4 = defaulthome.member4;
   $scope.homeedit = {
+    join: false,
+    donate: false,
     ourpurpose: false,
     mission: false,
     missionp: false,
