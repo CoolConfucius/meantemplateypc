@@ -1737,3 +1737,11 @@ textarea {
   height: 250px;
   width: 600px;
 }
+
+input, select, textarea{
+    color: #000000;
+}
+
+textarea:focus, input:focus {
+    color: #000000;
+}
