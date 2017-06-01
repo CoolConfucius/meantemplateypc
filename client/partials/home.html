@@ -104,8 +104,12 @@
           <div class="testimonial fh5co-selected">
             <!-- <div ondblclick="makeEditable(this)" onblur="makeReadOnly(this)"> -->
             <blockquote>
-              <p>&ldquo;Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius. Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.&rdquo;</p>
-              <p class="author"><img src="../assets/images/person1.jpg"> <cite>&mdash; Eric Miller</cite></p>
+              <p ng-hide="homeedit.member3p" ng-dblclick="toggleeditable('member3p')">&ldquo;{{member3p}}&rdquo;</p>
+              <textarea type="text" ng-show="homeedit.member3p" ng-model="member3p" ng-blur="saveeditable('member3p')"></textarea>
+              <p class="author"><img src="../assets/images/person1.jpg"> 
+                <cite ng-hide="homeedit.member3" ng-dblclick="toggleeditable('member3')">&mdash; {{member3}}</cite>
+                <input type="text" ng-show="homeedit.member3" ng-model="member3" ng-blur="saveeditable('member3')">
+              </p>
             </blockquote>
           <!-- </div> -->
           </div>
@@ -113,8 +117,12 @@
           <div class="testimonial">
             <!-- <div ondblclick="makeEditable(this)" onblur="makeReadOnly(this)"> -->
             <blockquote>
-              <p>&ldquo;Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.&rdquo;</p>
-              <p class="author"><img src="../assets/images/person1.jpg"> <cite>&mdash; Mike Adam</cite></p>
+              <p ng-hide="homeedit.member4p" ng-dblclick="toggleeditable('member4p')">&ldquo;{{member4p}}&rdquo;</p>
+              <textarea type="text" ng-show="homeedit.member4p" ng-model="member4p" ng-blur="saveeditable('member4p')"></textarea>
+              <p class="author"><img src="../assets/images/person1.jpg"> 
+                <cite ng-hide="homeedit.member4" ng-dblclick="toggleeditable('member4')">&mdash; {{member4}}</cite>
+                <input type="text" ng-show="homeedit.member4" ng-model="member4" ng-blur="saveeditable('member4')">
+              </p>
             </blockquote>
           <!-- </div> -->
           </div>
