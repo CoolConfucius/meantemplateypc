@@ -11,6 +11,8 @@ var defaulthome = {
   connectwith: "Connect with like-minded professionals",
   happy: "HAPPY MEMBERS",
   happyp: "Come see what the community has to say about their experience with YPC.",
+  member1p: "&ldquo;Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.&rdquo;",
+  member1: "Mike Adam"
 }
 
 app.controller('navCtrl', ['$scope', '$state', '$location', 'usersFactory', function($scope, $state, $location, usersFactory){
@@ -97,7 +99,7 @@ app.controller('registerCtrl', ['$scope', '$state', '$localStorage', 'usersFacto
 
 app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactory', 'editablesFactory', function($scope, $location, $localStorage, usersFactory, editablesFactory){
   console.log("homeCtrl");
-  var homenames = ['ourpurpose', 'mission', 'missionp', 'whoweare', 'aboutus', 'aboutusp', 'connectwith', 'happy', 'happyp', 'member1', 'member1p', 'member2', 'member2p', 'member3', 'member3p', 'member4', 'member4p']; 
+  var homenames = ['ourpurpose', 'mission', 'missionp', 'whoweare', 'aboutus', 'aboutusp', 'connectwith', 'happy', 'happyp', 'member1p', 'member1', 'member2p', 'member2', 'member3p', 'member3', 'member4p', 'member4']; 
   $scope.loguser = null; 
   $scope.editables = []; 
   $scope.ourpurpose = defaulthome.ourpurpose;
@@ -109,14 +111,14 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
   $scope.connectwith = defaulthome.connectwith;
   $scope.happy = defaulthome.happy;
   $scope.happyp = defaulthome.happyp;
-  $scope.member1 = defaulthome.member1;
   $scope.member1p = defaulthome.member1p;
-  $scope.member2 = defaulthome.member2;
+  $scope.member1 = defaulthome.member1;
   $scope.member2p = defaulthome.member2p;
-  $scope.member3 = defaulthome.member3;
+  $scope.member2 = defaulthome.member2;
   $scope.member3p = defaulthome.member3p;
-  $scope.member4 = defaulthome.member4;
+  $scope.member3 = defaulthome.member3;
   $scope.member4p = defaulthome.member4p;
+  $scope.member4 = defaulthome.member4;
   $scope.homeedit = {
     ourpurpose: false,
     mission: false,
@@ -127,14 +129,14 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
     connectwith: false,
     happy: false,
     happyp: false,
-    member1: false,
     member1p: false,
-    member2: false,
+    member1: false,
     member2p: false,
-    member3: false,
+    member2: false,
     member3p: false,
-    member4: false,
-    member4p: false
+    member3: false,
+    member4p: false,
+    member4: false
   }
   
   editablesFactory.index(function(data){
