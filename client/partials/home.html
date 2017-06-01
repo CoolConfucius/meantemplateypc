@@ -62,9 +62,12 @@
       <div class="row animate-box row-pb-md">
         <div class="col-md-8 col-md-offset-2 text-left fh5co-heading">
           <!-- <div ondblclick="makeEditable(this)" onblur="makeReadOnly(this)"> -->
-          <span>Connect with like-minded professionals</span>
-          <h2>HAPPY MEMBERS</h2>
-          <p>Come see what the community has to say about their experience with YPC.</p>
+          <span ng-hide="homeedit.connectwith" ng-bind="connectwith" ng-dblclick="toggleeditable('connectwith')">Connect with like-minded professionals</span>
+          <input type="text" ng-show="homeedit.connectwith" ng-model="connectwith" ng-blur="saveeditable('connectwith')">
+          <h2 ng-hide="homeedit.happy" ng-bind="happy" ng-dblclick="toggleeditable('happy')">HAPPY MEMBERS</h2>
+          <input type="text" ng-show="homeedit.happy" ng-model="happy" ng-blur="saveeditable('happy')">
+          <p ng-hide="homeedit.happyp" ng-bind="happyp" ng-dblclick="toggleeditable('happyp')">Come see what the community has to say about their experience with YPC.</p>
+          <textarea type="text" ng-show="homeedit.happyp" ng-model="happyp" ng-blur="saveeditable('happyp')"></textarea>
         <!-- </div> -->
       </div>
       <div class="row">

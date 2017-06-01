@@ -97,7 +97,7 @@ app.controller('registerCtrl', ['$scope', '$state', '$localStorage', 'usersFacto
 
 app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactory', 'editablesFactory', function($scope, $location, $localStorage, usersFactory, editablesFactory){
   console.log("homeCtrl");
-  var homenames = ['ourpurpose', 'mission', 'missionp', 'whoweare', 'aboutus', 'aboutusp', 'member1', 'member1p', 'member2', 'member2p', 'member3', 'member3p', 'member4', 'member4p']; 
+  var homenames = ['ourpurpose', 'mission', 'missionp', 'whoweare', 'aboutus', 'aboutusp', 'connectwith', 'happy', 'happyp', 'member1', 'member1p', 'member2', 'member2p', 'member3', 'member3p', 'member4', 'member4p']; 
   $scope.loguser = null; 
   $scope.editables = []; 
   $scope.ourpurpose = defaulthome.ourpurpose;
@@ -106,6 +106,9 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
   $scope.whoweare = defaulthome.whoweare;
   $scope.aboutus = defaulthome.aboutus;
   $scope.aboutusp = defaulthome.aboutusp;
+  $scope.connectwith = defaulthome.connectwith;
+  $scope.happy = defaulthome.happy;
+  $scope.happyp = defaulthome.happyp;
   $scope.member1 = defaulthome.member1;
   $scope.member1p = defaulthome.member1p;
   $scope.member2 = defaulthome.member2;
@@ -121,6 +124,9 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
     whoweare: false,
     aboutus: false,
     aboutusp: false,
+    connectwith: false,
+    happy: false,
+    happyp: false,
     member1: false,
     member1p: false,
     member2: false,
