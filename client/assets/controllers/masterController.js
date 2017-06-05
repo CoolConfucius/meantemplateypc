@@ -70,12 +70,27 @@ app.controller('registerCtrl', ['$scope', '$state', '$localStorage', 'usersFacto
   $scope.username = '';
   $scope.isadmin = false; 
 
+  // $scope.errorshow = {
+  //   username: false 
+  // }
+
+  // $scope.error = {
+  //   username: "No username."
+  // }
+
+  $scope.usernameerrorshow = false;
+  $scope.usernameerror = "No username.";
+
+  $scope.passworderrorshow = false;
+  $scope.passworderror = "No password.";
+
   $scope.register = function(){
     if ($scope.loguser) {
       swal("Logout first before registering!");
       return; 
     };
     if (!$scope.username && !$scope.email) {
+      $scope.usernameerrorshow = true; 
       swal("A username or email is required!");
       return; 
     };

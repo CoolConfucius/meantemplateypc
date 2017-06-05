@@ -60,7 +60,7 @@
         <form id="formRegister">
           <div class="row form-group">
             <div class="col-md-6">
-              <label for="username">User Name <span class="valid_error"><%= errors.username %></span></label>
+              <label for="username">User Name <span ng-show="usernameerrorshow" ng-bind="usernameerror" class="validerror" style="color:red;"></span></label>
               <input ng-model="username" type="text" id="username" class="form-control" placeholder="User Name">
             </div>
           </div>
