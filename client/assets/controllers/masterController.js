@@ -26,10 +26,10 @@ var defaulthome = {
 app.controller('navCtrl', ['$scope', '$state', '$location', 'usersFactory', function($scope, $state, $location, usersFactory){
   console.log("navCtrl");
   console.log("$location: ", $location.url());
-  $scope.$url = $location.url(); 
-  $scope.loguser = null; 
+  $scope.$url = $location.url();
+  $scope.loguser = null;
   usersFactory.getUser(function(data){
-    $scope.loguser = data; 
+    $scope.loguser = data;
     console.log("navCtrl usersFactory getUser, ", data);
   })
 
@@ -41,9 +41,9 @@ app.controller('navCtrl', ['$scope', '$state', '$location', 'usersFactory', func
     usersFactory.login(user, function(data){
       console.log('login data', data);
       if (data === "No user in the database" || data === "Invalid password") {
-        swal(data);  
+        swal(data);
       } else {
-        $scope.loguser = data; 
+        $scope.loguser = data;
         $state.go('home');
       }
     })
@@ -52,7 +52,7 @@ app.controller('navCtrl', ['$scope', '$state', '$location', 'usersFactory', func
   $scope.logout = function(){
     console.log("Logging out");
     usersFactory.logout(function(){
-      $scope.loguser = null;   
+      $scope.loguser = null;
       $state.go('home')
     })
   }
@@ -68,34 +68,67 @@ app.controller('navCtrl', ['$scope', '$state', '$location', 'usersFactory', func
 app.controller('registerCtrl', ['$scope', '$state', '$localStorage', 'usersFactory', function($scope, $state, $localStorage, usersFactory){
   console.log("registerCtrl");
   $scope.username = '';
-  $scope.isadmin = false; 
-
-  // $scope.errorshow = {
-  //   username: false 
-  // }
-
-  // $scope.error = {
-  //   username: "No username."
-  // }
+  $scope.isadmin = false;
 
   $scope.usernameerrorshow = false;
   $scope.usernameerror = "No username.";
 
-  $scope.passworderrorshow = false;
-  $scope.passworderror = "No password.";
+  $scope.first_nameerrorshow = false;
+  $scope.first_nameerror = "No first name.";
+
+  $scope.last_nameerrorshow = false;
+  $scope.last_nameerror = "No last name.";
+
+  $scope.phoneerrorshow = false;
+  $scope.phoneerror = "No Phone Number.";
+
+  $scope.emailerrorshow = false;
+  $scope.emailerror = "No E-Mail Address.";
+
+  $scope.pw1errorshow = false;
+  $scope.pw1error = "No Password Entered.";
+
+  $scope.pw2errorshow = false;
+  $scope.pw2error = "Passwords Do Not Match.";
+
 
   $scope.register = function(){
     if ($scope.loguser) {
       swal("Logout first before registering!");
-      return; 
+      return;
     };
     if (!$scope.username && !$scope.email) {
-      $scope.usernameerrorshow = true; 
+<<<<<<< HEAD
+      $scope.usernameerrorshow = true;
+      return;
+    };
+    if (!$scope.first_name) {
+      $scope.first_nameerrorshow = true;
+      return;
+    };
+    if (!$scope.last_name) {
+      $scope.last_nameerrorshow = true;
+      return;
+    };
+    if (!$scope.phone) {
+      $scope.phoneerrorshow = true;
+      return;
+    };
+    if (!$scope.email) {
+      $scope.emailerrorshow = true;
+      return;
+    };
+    if (!$scope.pw1) {
+      $scope.pw1errorshow = true;
+      return;
+=======
+      $scope.usernameerrorshow = true;
       swal("A username or email is required!");
-      return; 
+      return;
+>>>>>>> bc956b6c4a84a8befccc9d514e7115aeda39ace1
     };
     if ($scope.pw1 !== $scope.pw2) {
-      swal("Passwords not the same!");
+      $scope.pw2errorshow = true;
       return;
     };
     var user = {
@@ -106,26 +139,26 @@ app.controller('registerCtrl', ['$scope', '$state', '$localStorage', 'usersFacto
     usersFactory.register(user, function(data){
       console.log("user controller factory register", data);
       if (data === "Username already taken") {
-        swal("Username already taken!");  
+        swal("Username already taken!");
       } else {
-        $scope.loguser = data; 
+        $scope.loguser = data;
         $state.go('home');
       }
     })
   }
 
 
-  
+
 
 }])
 
 
 app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactory', 'editablesFactory', function($scope, $location, $localStorage, usersFactory, editablesFactory){
   console.log("homeCtrl");
-  var homenames = ['join', 'donate', 'ourpurpose', 'mission', 'missionp', 'whoweare', 'aboutus', 'aboutusp', 'connectwith', 'happy', 'happyp', 'member1p', 'member1', 'member2p', 'member2', 'member3p', 'member3', 'member4p', 'member4']; 
-  $scope.loguser = null; 
-  $scope.token = $localStorage.token; 
-  $scope.editables = []; 
+  var homenames = ['join', 'donate', 'ourpurpose', 'mission', 'missionp', 'whoweare', 'aboutus', 'aboutusp', 'connectwith', 'happy', 'happyp', 'member1p', 'member1', 'member2p', 'member2', 'member3p', 'member3', 'member4p', 'member4'];
+  $scope.loguser = null;
+  $scope.token = $localStorage.token;
+  $scope.editables = [];
   $scope.join = defaulthome.join;
   $scope.donate = defaulthome.donate;
   $scope.ourpurpose = defaulthome.ourpurpose;
@@ -166,12 +199,12 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
     member4p: false,
     member4: false
   }
-  
+
   editablesFactory.index(function(data){
     console.log("homeCtrl editablesFactory index data: ", data);
     if (data.length > 0) {
       console.log("data returns true");
-      $scope.editables = data; 
+      $scope.editables = data;
       homenames.forEach(function(homename){
         data.forEach(function(element){
           if(element.name === homename) {
@@ -183,13 +216,13 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
     usersFactory.getUser(function(data){
       console.log("homeCtrl usersFactory getUser, ", data);
       if (data) {
-        $scope.loguser = data; 
+        $scope.loguser = data;
         // $scope.newcollection.owner = data.username;
         $scope.username = data.username;
         usersFactory.show($scope.username, function(data){
           console.log("homeCtrl usersFactory show: ");
           console.log("data , ", data);
-          $scope.loguser.admin = data.admin; 
+          $scope.loguser.admin = data.admin;
         })
       };
     })
@@ -202,42 +235,42 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
     if (!$localStorage.token || !$scope.loguser || !$scope.loguser.admin) {
       swal("Not logged in as an admin. Login as admin to edit");
       // console.log("Not logged in as an admin. Login as admin to edit");
-      return; 
+      return;
     };
     console.log("toggleeditable ", name);
-    $scope['homeedit'][name] = true; 
+    $scope['homeedit'][name] = true;
   }
 
   $scope.saveeditable = function(name){
     console.log("saveeditable ", name);
     var createneweditable = () => {
-      if ($scope[name] === defaulthome[name]) { 
+      if ($scope[name] === defaulthome[name]) {
         console.log("Same as default, no changes.");
         $scope.homeedit[name] = false;
-        return; 
+        return;
       };
       var neweditable = {
         name: name,
         content: $scope[name],
         page: "home"
       }
-      $scope.editables.push(neweditable); 
+      $scope.editables.push(neweditable);
       editablesFactory.create(neweditable, function(data){
         console.log("editablesFactory create data: ", data);
         $scope.homeedit[name] = false;
-        return; 
+        return;
       })
     }
 
     if ($scope.editables.length > 0) {
       console.log("$scope editables: ", $scope.editables);
-      var index = 0; 
+      var index = 0;
       while(index < $scope.editables.length){
         var editable = $scope.editables[index]
         if (editable.name === name) {
           if ($scope[name] === editable.content) {
             $scope.homeedit[name] = false;
-            return; 
+            return;
           };
           console.log("content has changed");
           var updatededitable = {
@@ -245,23 +278,23 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
             content: $scope[name],
             page: "home"
           }
-          $scope.editables[index].content = $scope[name]; 
+          $scope.editables[index].content = $scope[name];
           editablesFactory.update(updatededitable, function(data){
             console.log("editablesFactory update data: ", data);
             $scope.homeedit[name] = false;
-            return; 
+            return;
           })
-          return; 
+          return;
         };
-        index++; 
+        index++;
       }
       console.log("Here? akjlsdfjsadfl;sdjl;");
-      createneweditable(); 
+      createneweditable();
     } else {
       console.log("Or Here? akjlsdfjsadfl;sdjlads fdsaf;");
-      createneweditable(); 
+      createneweditable();
     }
-    
+
   }
 
   // $scope.makeEditable = function(div){
@@ -277,7 +310,7 @@ app.controller('homeCtrl', ['$scope', '$location', '$localStorage', 'usersFactor
   //   div.contentEditable = false;
   //    // alert("Run Ajax POST request here to save the div.innerHTML \ or div.textContent to the database.");
   //  console.log("Run Ajax POST request here to save the div.innerHTML \ or div.textContent to the database.");
-  //  cb(); 
+  //  cb();
   // }
 
 }])
