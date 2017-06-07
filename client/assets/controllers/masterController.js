@@ -98,7 +98,6 @@ app.controller('registerCtrl', ['$scope', '$state', '$localStorage', 'usersFacto
       return;
     };
     if (!$scope.username && !$scope.email) {
-<<<<<<< HEAD
       $scope.usernameerrorshow = true;
       return;
     };
@@ -118,15 +117,10 @@ app.controller('registerCtrl', ['$scope', '$state', '$localStorage', 'usersFacto
       $scope.emailerrorshow = true;
       return;
     };
-    if (!$scope.pw1) {
-      $scope.pw1errorshow = true;
-      return;
-=======
-      $scope.usernameerrorshow = true;
-      swal("A username or email is required!");
-      return;
->>>>>>> bc956b6c4a84a8befccc9d514e7115aeda39ace1
-    };
+    // if (!$scope.pw1) {
+    //   $scope.pw1errorshow = true;
+    //   return;
+    // };
     if ($scope.pw1 !== $scope.pw2) {
       $scope.pw2errorshow = true;
       return;
