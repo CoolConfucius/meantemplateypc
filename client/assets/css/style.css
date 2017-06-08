@@ -1745,3 +1745,8 @@ input, select, textarea{
 textarea:focus, input:focus {
     color: #000000;
 }
+
+
+.validerror {
+  color: #ff0000;
+}

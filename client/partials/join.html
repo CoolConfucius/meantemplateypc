@@ -60,59 +60,61 @@
         <form id="formRegister">
           <div class="row form-group">
             <div class="col-md-6">
-              <label for="username">User Name <span class="valid_error"><%= errors.username %></span></label>
-              <input ng-model="username" type="text" id="username" class="form-control" placeholder="User Name">
+              <label for="username">User Name <span ng-show="usernameerrorshow" ng-bind="usernameerror" class="validerror" style="color:red;"></span></label>
+              <input ng-model="username" type="text" id="username" class="form-control" placeholder="User Name" required="required">
             </div>
           </div>
           <div class="row form-group">
             <div class="col-md-6">
-              <label for="fname">First Name <span class="valid_error"><%= errors.first_name %></span></label>
-              <input ng-model="first_name" type="text" id="fname" class="form-control" placeholder="First Name">
+              <label for="first_name">First Name <span ng-show="first_nameerrorshow" ng-bind="first_nameerror" class="validerror" style="color:red;"></span></label>
+              <input ng-model="first_name" type="text" id="first_name" class="form-control" placeholder="First Name" required="required">
             </div>
             <div class="col-md-6">
-              <label for="lname">Last Name <span class="valid_error"><%= errors.last_name %></span></label>
-              <input ng-model="last_name" type="text" id="lname" class="form-control" placeholder="Last Name">
+              <label for="last_name">Last Name <span ng-show="last_nameerrorshow" ng-bind="last_nameerror" class="validerror" style="color:red;"></span></label>
+              <input ng-model="last_name" type="text" id="last_name" class="form-control" placeholder="Last Name" required="required">
             </div>
           </div>
 
           <div class="row form-group">
             <div class="col-md-12">
-              <label for="phone">Phone Number<span class="valid_error"><%= errors.phone %></span></label>
-              <input ng-model="phone" type="tel" id="phone" class="form-control" placeholder="Phone Number">
+              <label for="phone">Phone Number<span ng-show="phoneerrorshow" ng-bind="phoneerror" class="validerror" style="color:red;"></span></label>
+              <input ng-model="phone" type="tel" id="phone" class="form-control" placeholder="Phone Number" required="required">
             </div>
           </div>
 
           <div class="row form-group">
             <div class="col-md-12">
-              <label for="email">Email<span class="valid_error"><%= errors.email %></span></label>
-              <input ng-model="email" type="text" id="email" class="form-control" placeholder="Email Address">
+              <label for="email">Email<span ng-show="emailerrorshow" ng-bind="emailerror" class="validerror" style="color:red;"></span></label>
+              <input ng-model="email" type="text" id="email" class="form-control" placeholder="Email Address" required="required">
             </div>
           </div>
 
           <div class="row form-group">
             <div class="col-md-6">
-              <label for="company">Company (optional) <span class="valid_error"><%= errors.company %></span></label>
+              <label for="company">Company (optional) </label>
               <input ng-model="company" type="text" id="company" class="form-control" placeholder="Company">
             </div>
             <div class="col-md-6">
-              <label for="position">Position (optional)<span class="valid_error"><%= errors.position %></span></label>
+              <label for="position">Position (optional)</label>
               <input ng-model="position" type="text" id="position" class="form-control" placeholder="Position">
             </div>
           </div>
 
           <div class="row form-group">
             <div class="col-md-12">
-              <label for="subject">Password<span class="valid_error"><%= errors.password %></span></label>
+              <label for="subject">Password<span ng-show="pw1errorshow" ng-bind="pw1error" class="validerror" style="color:red;"></span></label>
               <input ng-model="pw1" type="password" id="password" class="form-control" placeholder="Password" required="required">
             </div>
           </div>
           <div class="row form-group">
             <div class="col-md-12">
-              <label for="subject">Confirm Password<span class="valid_error"><%= errors.confirm_password %></span></label>
+              <label for="subject">Confirm Password<span ng-show="pw2errorshow" ng-bind="pw2error" class="validerror" style="color:red;"></span></label>
               <input ng-model="pw2" type="password" id="confirm_password" class="form-control" placeholder="Confirm Password" required="required">
             </div>
           </div>
-          <div class="row form-group">
+
+                          <!-- Removed Join as Admin feature -->
+          <!-- <div class="row form-group">
             <div class="col-md-12">
               <label for="subject">Join as Admin: </label>
               <select name="isadmin" ng-model="isadmin">
@@ -120,7 +122,8 @@
                 <option name="false" value="false">No</option>
               </select>
             </div>
-          </div>
+          </div> -->
+          
           <div class="row form-group">
             <div class="col-md-12">
               <br>
