@@ -130,9 +130,14 @@ app.factory('editablesFactory', ['$http', '$localStorage', '$rootScope', functio
     this.index = function(callback){
       console.log("editables factory index method");
       $http.get('/editables').then(function(returned_data){
-        console.log("editables factory get editables: ", returned_data.data);
-        editables = returned_data.data;
-        callback(editables);
+        console.log("returned data: ", returned_data);
+        if (returned_data) {
+          console.log("editables factory get editables: ", returned_data.data);
+          editables = returned_data.data;
+          callback(editables);
+        } else {
+          callback([]);
+        }
       });
 
     };
